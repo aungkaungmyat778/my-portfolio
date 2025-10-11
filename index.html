@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aung Kaung Myat | Software Engineer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* GitHub Dark Theme Background */
+            color: #c9d1d9; /* Light text */
+            line-height: 1.6;
+        }
+        .section-header {
+            border-left: 4px solid #38bdf8; /* Sky Blue accent */
+            padding-left: 1rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .project-card {
+            background-color: #161b22; /* Slightly lighter dark background for cards */
+            border: 1px solid #30363d;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        .skill-tag {
+            background-color: #30363d;
+            color: #58a6ff; /* Blue accent for tags */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 lg:p-12">
+
+    <div class="max-w-4xl mx-auto">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <!-- Replace this placeholder with your professional photo URL if available -->
+            <img src="my-image.png" alt="Aung Kaung Myat Profile" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-sky-400">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-1">Aung Kaung Myat</h1>
+            <h2 class="text-xl sm:text-2xl font-light text-sky-300">Software Engineer | Full Stack Developer</h2>
+            <div class="mt-3 text-sm flex flex-wrap justify-center space-x-4">
+                <p class="text-gray-400">Japan (Tokyo)</p>
+                <p class="text-gray-400">| Email: hemeletakm@gmail.com</p>
+                <p class="text-gray-400">| Phone: +81 70-4386-2133</p>
+            </div>
+        </header>
+
+        <!-- Summary / Profile Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl section-header mb-6">Professional Summary</h3>
+            <div class="bg-gray-800 p-6 rounded-lg border border-sky-600/30">
+                <p class="text-gray-300 text-base">
+                    Proactive and dedicated Software Engineer based in Japan with 3+ years of experience in full-stack development, specializing in Java, Spring Boot, and TypeScript (Vue.js). Proven ability to handle all phases of the software development lifecycle, from detailed design to migration and bug fixing. Proficient in delivering high-quality, scalable systems, demonstrated particularly through migration projects that modernize legacy applications and improve system performance. Fluent in Japanese (N2 equivalent) and passionate about building efficient, multilingual applications.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl section-header mb-6">Technical Skills</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Languages & Frameworks -->
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-3 text-sky-300">Languages & Frameworks</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Java (Spring Boot)</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Node.js</span> 
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">TypeScript (Vue.js)</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">JavaScript / jQuery</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">HTML5 / CSS3</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">JSP / Java Servlet</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">C# / .NET</span>
+                    </div>
+                </div>
+                <!-- Databases & Tools -->
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-3 text-sky-300">Databases & Tools</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">SQL Server</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">MySQL</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Git / GitHub</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Eclipse / VS Studio</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Gradle / Maven</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Windows / Linux (Basic)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience / Projects Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl section-header mb-6">Key Professional Projects</h3>
+
+            <!-- Project 1: Transportation Management System (Shipping/Logistics) -->
+            <div class="project-card p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-white">Transportation Management System (Migration Project)</h4>
+                <p class="text-sm text-gray-400 mb-3">May 2024 – Role: SE/Sub Leader | Industry: Logistics/Warehousing</p>
+                
+                <p class="text-gray-300 mb-4">
+                    Project Goal: Modernize a legacy VB.NET shipping and inventory management system by migrating the entire application to a modern Java/Vue.js stack, improving scalability and maintainability for a major Japanese transport company.
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
+                    <li>
+                        Front-End Development: Built 6 critical screens (e.g., Inventory List Printing, Deviation List) using TypeScript and Vue.js, significantly improving user experience and responsiveness compared to the legacy system.
+                    </li>
+                    <li>
+                        Back-End Development: Developed and implemented 6 key REST APIs using Java/Spring Boot for core business logic, including inventory management, reconciliation, and shipment processes.
+                    </li>
+                    <li>
+                        Quality Assurance: Authored and executed Unit Test Specifications and Unit Tests for all developed APIs and front-end components, ensuring robust and bug-free migration.
+                    </li>
+                    <li>
+                        Environment: Java, Spring Boot, Vue.js, TypeScript, SQL Server.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Project 2: Agriculture System -->
+            <div class="project-card p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-white">Agriculture System</h4>
+                <p class="text-sm text-gray-400 mb-3">May 2025 – Present | Role: SE | Industry: Agriculture/Sensor</p>
+                
+                <p class="text-gray-300 mb-4">
+                    Project Goal: Get the sensor data from on site set up sensor for showing caculate sensor eg. Temperature,Humidity,CO2 and Weather data for each planted cell of Fruites and Vegetables.
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
+                    <li>
+                        Front-End Development: Develop DashBoard for showing sensor data,planted data and manage for each senor.
+                    </li>
+                    <li>
+                        Back-End Development: Fetch data from sensor,Store sensor data in Opensearch(Cloud service),Cacualte and post to Client side.
+                    </li>
+                    <li>
+                        Quality Assurance: Develop for DashBoard,Sensor,AI-server,Weather Server and deploy with GCP(cloud run)
+                    </li>
+                    <li>
+                        Environment: Node.js, React.js, Kafka, Opensearch, My SQL(Cloud Server).
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Project 3: Sales Management System (E-commerce) -->
+            <div class="project-card p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-white">E-commerce Sales Management System</h4>
+                <p class="text-sm text-gray-400 mb-3">Oct 2022 – Apr 2024 | Role: SE/Developer | Industry: E-commerce</p>
+                
+                <p class="text-gray-300 mb-4">
+                    Project Goal: Enhance a sales management system for a major e-commerce platform, focusing on inventory, order processing, and reporting functionalities.
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
+                    <li>
+                        Full-Stack Implementation: Responsible for both front-end (JSP/JavaScript) and back-end (Java Servlet) development for order management screens.
+                    </li>
+                    <li>
+                        Database Optimization: Designed and implemented SQL queries for complex reporting and inventory checks against MySQL to ensure data accuracy for sales metrics.
+                    </li>
+                    <li>
+                        Feature Development: Developed a new Inventory Status Check feature that provided real-time stock levels, reducing manual verification time by an estimated 20%.
+                    </li>
+                    <li>
+                        Environment: Java, JSP, Java Servlet, JavaScript, HTML/CSS, MySQL, Eclipse.
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Education and Certifications Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl section-header mb-6">Education & Certifications</h3>
+            
+            <div class="space-y-4">
+                <!-- Education -->
+                <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                    <p class="text-lg font-semibold text-white">Diploma in Information Technology</p>
+                    <p class="text-sm text-gray-400">METRO Private University (METRO(私立大学)), Yangon, Myanmar</p>
+                    <p class="text-sm text-gray-400">Nov 2017 – Oct 2019 | Major: IT</p>
+                </div>
+                <!-- Japanese Language Training -->
+                <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                    <p class="text-lg font-semibold text-white">Japanese Language & Culture Training</p>
+                    <p class="text-sm text-gray-400">Nov 2017 – Oct 2019</p>
+                    <p class="text-sm text-gray-300">Achieved proficiency equivalent to Japanese Language Proficiency Test N2 level.</p>
+                </div>
+                <!-- Certifications -->
+                <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                    <p class="text-lg font-semibold text-white">Certifications</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-300">
+                        <li>ITPEC Certification (April 2018)</li>
+                        <li>Japanese Language Proficiency(N2 JLPT)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="text-center mt-12 pt-6 border-t border-gray-700">
+            <p class="text-sm text-gray-500">
+                Portfolio designed for international job and freelance applications. All professional data is adapted from the original 履歴書 and 職務経歴書.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
