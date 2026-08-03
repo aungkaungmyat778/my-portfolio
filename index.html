@@ -1,5 +1,7 @@
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,33 +11,44 @@
     <!-- Use Inter font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* GitHub Dark Theme Background */
-            color: #c9d1d9; /* Light text */
+            background-color: #0d1117;
+            /* GitHub Dark Theme Background */
+            color: #c9d1d9;
+            /* Light text */
             line-height: 1.6;
         }
+
         .section-header {
-            border-left: 4px solid #38bdf8; /* Sky Blue accent */
+            border-left: 4px solid #38bdf8;
+            /* Sky Blue accent */
             padding-left: 1rem;
             color: #ffffff;
             font-weight: 700;
         }
+
         .project-card {
-            background-color: #161b22; /* Slightly lighter dark background for cards */
+            background-color: #161b22;
+            /* Slightly lighter dark background for cards */
             border: 1px solid #30363d;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
         }
+
         .skill-tag {
             background-color: #30363d;
-            color: #58a6ff; /* Blue accent for tags */
+            color: #58a6ff;
+            /* Blue accent for tags */
         }
     </style>
 </head>
+
 <body class="p-4 sm:p-8 lg:p-12">
 
     <div class="max-w-4xl mx-auto">
@@ -43,7 +56,8 @@
         <!-- Header Section -->
         <header class="text-center mb-12">
             <!-- Replace this placeholder with your professional photo URL if available -->
-            <img src="my-image.png" alt="Aung Kaung Myat Profile" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-sky-400">
+            <img src="my-image.png" alt="Aung Kaung Myat Profile"
+                class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-sky-400">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-1">Aung Kaung Myat</h1>
             <h2 class="text-xl sm:text-2xl font-light text-sky-300">Software Engineer | Full Stack Developer</h2>
             <div class="mt-3 text-sm flex flex-wrap justify-center space-x-4">
@@ -58,7 +72,12 @@
             <h3 class="text-2xl section-header mb-6">Professional Summary</h3>
             <div class="bg-gray-800 p-6 rounded-lg border border-sky-600/30">
                 <p class="text-gray-300 text-base">
-                    Proactive and dedicated Software Engineer based in Japan with 3+ years of experience in full-stack development, specializing in Java, Spring Boot, and TypeScript (Vue.js). Proven ability to handle all phases of the software development lifecycle, from detailed design to migration and bug fixing. Proficient in delivering high-quality, scalable systems, demonstrated particularly through migration projects that modernize legacy applications and improve system performance. Fluent in Japanese (N2 equivalent) and passionate about building efficient, multilingual applications.
+                    Proactive and dedicated Software Engineer based in Japan with 3+ years of experience in full-stack
+                    development, specializing in Java, Spring Boot, and TypeScript (Vue.js). Proven ability to handle
+                    all phases of the software development lifecycle, from detailed design to migration and bug fixing.
+                    Proficient in delivering high-quality, scalable systems, demonstrated particularly through migration
+                    projects that modernize legacy applications and improve system performance. Fluent in Japanese (N2
+                    equivalent) and passionate about building efficient, multilingual applications.
                 </p>
             </div>
         </section>
@@ -72,7 +91,7 @@
                     <h4 class="text-xl font-semibold mb-3 text-sky-300">Languages & Frameworks</h4>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-tag px-3 py-1 rounded-full text-sm">Java (Spring Boot)</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Node.js</span> 
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Node.js</span>
                         <span class="skill-tag px-3 py-1 rounded-full text-sm">TypeScript (Vue.js)</span>
                         <span class="skill-tag px-3 py-1 rounded-full text-sm">JavaScript / jQuery</span>
                         <span class="skill-tag px-3 py-1 rounded-full text-sm">HTML5 / CSS3</span>
@@ -99,23 +118,73 @@
         <section class="mb-12">
             <h3 class="text-2xl section-header mb-6">Key Professional Projects</h3>
 
-            <!-- Project 1: Transportation Management System (Shipping/Logistics) -->
+            <!-- Project 0: Gift Certificate Management System (Financial Services) -->
             <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Transportation Management System (Migration Project)</h4>
-                <p class="text-sm text-gray-400 mb-3">May 2024 – Role: SE/Sub Leader | Industry: Logistics/Warehousing</p>
-                
+                <h4 class="text-xl font-bold text-white">Enterprise Gift Certificate Management System (Financial
+                    Services)</h4>
+                <p class="text-sm text-gray-400 mb-3">Jun 2026 – Present | Role: QA Engineer → Backend Developer |
+                    Industry: Financial Services</p>
+
                 <p class="text-gray-300 mb-4">
-                    Project Goal: Modernize a legacy VB.NET shipping and inventory management system by migrating the entire application to a modern Java/Vue.js stack, improving scalability and maintainability for a major Japanese transport company.
+                    Project Goal: Build and maintain an enterprise web application for managing physical/digital gift
+                    certificates for a Japanese financial services client, built on ASP.NET Core (.NET 8), React, and a
+                    multi-tenant PostgreSQL architecture (shared common database + isolated per-customer databases),
+                    deployed on AWS via Docker.
                 </p>
                 <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
                     <li>
-                        Front-End Development: Built 6 critical screens (e.g., Inventory List Printing, Deviation List) using TypeScript and Vue.js, significantly improving user experience and responsiveness compared to the legacy system.
+                        QA & Root-Cause Analysis: Designed and executed a Dev-environment test plan spanning 170+ test
+                        cases across a nightly multi-tenant batch-sync process, REST APIs, and multiple UI screens;
+                        debugged directly in C#/.NET source to trace a production-blocking third-party validation bug
+                        and diagnose AWS SES sandbox failures.
                     </li>
                     <li>
-                        Back-End Development: Developed and implemented 6 key REST APIs using Java/Spring Boot for core business logic, including inventory management, reconciliation, and shipment processes.
+                        AWS Operations: Used Systems Manager Session Manager for secure, SSH-free EC2 access, queried
+                        PostgreSQL via psql for test-data validation, and used CloudWatch Logs Insights for structured
+                        log analysis and evidence collection.
                     </li>
                     <li>
-                        Quality Assurance: Authored and executed Unit Test Specifications and Unit Tests for all developed APIs and front-end components, ensuring robust and bug-free migration.
+                        Backend Development: Authored Entity Framework Core entities and database migrations for a new
+                        Terms-of-Service management and targeted-announcements feature; investigated and documented a
+                        proposed multi-tenant API routing architecture change, tracing impact across JWT authentication,
+                        background services, and API clients.
+                    </li>
+                    <li>
+                        Planning & Communication: Contributed effort estimates and WBS task planning as part of a
+                        3-person development team; communicated daily status and blockers to a Japanese-speaking
+                        cross-functional team.
+                    </li>
+                    <li>
+                        Environment: C#, ASP.NET Core, Entity Framework Core, React, PostgreSQL, AWS (EC2, RDS, SSM,
+                        CloudWatch, SES, ECR), Docker.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Project 1: Transportation Management System (Shipping/Logistics) -->
+            <div class="project-card p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-white">Transportation Management System (Migration Project)</h4>
+                <p class="text-sm text-gray-400 mb-3">May 2024 – Role: SE/Sub Leader | Industry: Logistics/Warehousing
+                </p>
+
+                <p class="text-gray-300 mb-4">
+                    Project Goal: Modernize a legacy VB.NET shipping and inventory management system by migrating the
+                    entire application to a modern Java/Vue.js stack, improving scalability and maintainability for a
+                    major Japanese transport company.
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
+                    <li>
+                        Front-End Development: Built 6 critical screens (e.g., Inventory List Printing, Deviation List)
+                        using TypeScript and Vue.js, significantly improving user experience and responsiveness compared
+                        to the legacy system.
+                    </li>
+                    <li>
+                        Back-End Development: Developed and implemented 6 key REST APIs using Java/Spring Boot for core
+                        business logic, including inventory management, reconciliation, and shipment processes.
+                    </li>
+                    <li>
+                        Quality Assurance: Authored and executed Unit Test Specifications and Unit Tests for all
+                        developed APIs and front-end components, ensuring robust and bug-free migration.
                     </li>
                     <li>
                         Environment: Java, Spring Boot, Vue.js, TypeScript, SQL Server.
@@ -125,24 +194,29 @@
 
             <!-- Project 2: Agriculture System -->
             <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Agriculture System</h4>
-                <p class="text-sm text-gray-400 mb-3">May 2025 – Present | Role: SE | Industry: Agriculture/Sensor</p>
-                
+                <h4 class="text-xl font-bold text-white">Smart Agriculture System (Lettuce Cultivation)</h4>
+                <p class="text-sm text-gray-400 mb-3">May 2025 – Oct 2025 | Role: SE | Industry: Agriculture / IoT</p>
+
                 <p class="text-gray-300 mb-4">
-                    Project Goal: Get the sensor data from on site set up sensor for showing caculate sensor eg. Temperature,Humidity,CO2 and Weather data for each planted cell of Fruites and Vegetables.
+                    Project Goal: Developed a system to monitor environmental data (temperature, humidity, etc.) during
+                    lettuce cultivation and provide predictive insights (e.g., nitrate nitrogen and polyphenol levels)
+                    to support optimal farming decisions.
                 </p>
                 <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
                     <li>
-                        Front-End Development: Develop DashBoard for showing sensor data,planted data and manage for each senor.
+                        Front-End Development: Built dashboards to visualize cultivation data including growth status,
+                        environmental metrics, and sensor monitoring for greenhouses and racks.
                     </li>
                     <li>
-                        Back-End Development: Fetch data from sensor,Store sensor data in Opensearch(Cloud service),Cacualte and post to Client side.
+                        Back-End Development: Designed and implemented APIs, sensor data processing, AI server
+                        integration, and dashboard services.
                     </li>
                     <li>
-                        Quality Assurance: Develop for DashBoard,Sensor,AI-server,Weather Server and deploy with GCP(cloud run)
+                        System Architecture: Developed sensor server, AI server, and dashboard modules with cloud
+                        deployment on GCP.
                     </li>
                     <li>
-                        Environment: Node.js, React.js, Kafka, Opensearch, My SQL(Cloud Server).
+                        Environment: Node.js, React.js, TypeScript, MySQL, GCP (Cloud Run).
                     </li>
                 </ul>
             </div>
@@ -150,33 +224,109 @@
             <!-- Project 3: Sales Management System (E-commerce) -->
             <div class="project-card p-6 rounded-lg mb-6">
                 <h4 class="text-xl font-bold text-white">E-commerce Sales Management System</h4>
-                <p class="text-sm text-gray-400 mb-3">Oct 2022 – Apr 2024 | Role: SE/Developer | Industry: E-commerce</p>
-                
+                <p class="text-sm text-gray-400 mb-3">Oct 2022 – Apr 2024 | Role: SE/Developer | Industry: E-commerce
+                </p>
+
                 <p class="text-gray-300 mb-4">
-                    Project Goal: Enhance a sales management system for a major e-commerce platform, focusing on inventory, order processing, and reporting functionalities.
+                    Project Goal: Enhance a sales management system for a major e-commerce platform, focusing on
+                    inventory, order processing, and reporting functionalities.
                 </p>
                 <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
                     <li>
-                        Full-Stack Implementation: Responsible for both front-end (JSP/JavaScript) and back-end (Java Servlet) development for order management screens.
+                        Full-Stack Implementation: Responsible for both front-end (JSP/JavaScript) and back-end (Java
+                        Servlet) development for order management screens.
                     </li>
                     <li>
-                        Database Optimization: Designed and implemented SQL queries for complex reporting and inventory checks against MySQL to ensure data accuracy for sales metrics.
+                        Database Optimization: Designed and implemented SQL queries for complex reporting and inventory
+                        checks against MySQL to ensure data accuracy for sales metrics.
                     </li>
                     <li>
-                        Feature Development: Developed a new Inventory Status Check feature that provided real-time stock levels, reducing manual verification time by an estimated 20%.
+                        Feature Development: Developed a new Inventory Status Check feature that provided real-time
+                        stock levels, reducing manual verification time by an estimated 20%.
                     </li>
                     <li>
                         Environment: Java, JSP, Java Servlet, JavaScript, HTML/CSS, MySQL, Eclipse.
                     </li>
                 </ul>
             </div>
+            <!-- Project 3: Parking Congestion Prediction System -->
+            <div class="project-card p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-white">Parking Congestion Prediction System</h4>
+                <p class="text-sm text-gray-400 mb-3">Nov 2025 – Present | Role: SE | Industry: Smart City / Traffic
+                    Analysis</p>
+
+                <p class="text-gray-300 mb-4">
+                    Project Goal: Developed a system to predict parking congestion and travel time by analyzing routes
+                    from parking entry to exit, helping distribute traffic and reduce peak-time congestion.
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
+                    <li>
+                        Front-End Development: Implemented real-time UI screens for route time visualization, parking
+                        status, configuration settings, and weather display.
+                    </li>
+                    <li>
+                        Back-End Development: Designed APIs and system architecture for real-time data processing, route
+                        prediction, and parking data integration.
+                    </li>
+                    <li>
+                        System Features: Calculated travel time for each route, predicted congestion levels, and
+                        optimized route distribution.
+                    </li>
+                    <li>
+                        Team Size: 2 members, worked across both front-end and back-end.
+                    </li>
+                    <li>
+                        Environment: Node.js, React.js, TypeScript, PostgreSQL, Express, GCP.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Project 4: Securities System (Japan Market) -->
+            <div class="project-card p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-bold text-white">Securities System (Japanese Market)</h4>
+                <p class="text-sm text-gray-400 mb-3">Jul 2021 – Jul 2023 | Role: SE/Programmer | Industry: Finance
+                    (Securities)</p>
+
+                <p class="text-gray-300 mb-4">
+                    Project Goal: Maintenance and development of a core securities system for a major Japanese financial
+                    institution, handling critical batch processing and transaction data using COBOL and Assembly.
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
+                    <li>
+                        Back-End Development: Developed and maintained batch processing programs using COBOL and
+                        Assembly (ASM) for financial transaction systems.
+                    </li>
+                    <li>
+                        System Enhancement: Modified and optimized JCL scripts for job execution and performance
+                        improvements.
+                    </li>
+                    <li>
+                        Design & Documentation: Created detailed design documents and technical specifications in
+                        Japanese.
+                    </li>
+                    <li>
+                        Testing & QA: Prepared unit test specifications, conducted unit testing, and handled bug fixing.
+                    </li>
+                    <li>
+                        Maintenance & Operations: Supported ongoing system operations and issue resolution in a
+                        large-scale production environment.
+                    </li>
+                    <li>
+                        Team Size: 40 members.
+                    </li>
+                    <li>
+                        Environment: COBOL, Assembly, JCL, DB2, TSO, Windows.
+                    </li>
+                </ul>
+            </div>
+
 
         </section>
 
         <!-- Education and Certifications Section -->
         <section class="mb-12">
             <h3 class="text-2xl section-header mb-6">Education & Certifications</h3>
-            
+
             <div class="space-y-4">
                 <!-- Education -->
                 <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
@@ -188,7 +338,8 @@
                 <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
                     <p class="text-lg font-semibold text-white">Japanese Language & Culture Training</p>
                     <p class="text-sm text-gray-400">Nov 2017 – Oct 2019</p>
-                    <p class="text-sm text-gray-300">Achieved proficiency equivalent to Japanese Language Proficiency Test N2 level.</p>
+                    <p class="text-sm text-gray-300">Achieved proficiency equivalent to Japanese Language Proficiency
+                        Test N2 level.</p>
                 </div>
                 <!-- Certifications -->
                 <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
@@ -204,10 +355,12 @@
         <!-- Footer / Contact -->
         <footer class="text-center mt-12 pt-6 border-t border-gray-700">
             <p class="text-sm text-gray-500">
-                Portfolio designed for international job and freelance applications. All professional data is adapted from the original 履歴書 and 職務経歴書.
+                Portfolio designed for international job and freelance applications. All professional data is adapted
+                from the original 履歴書 and 職務経歴書.
             </p>
         </footer>
     </div>
 
 </body>
+
 </html>
