@@ -1,369 +1,801 @@
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Aung Kaung Myat — Full-Stack & Cloud Engineer">
-    <meta property="og:description" content="Full-stack projects in React, NestJS, ASP.NET Core, and AWS — deployed with real cloud infrastructure (EC2, RDS, S3, CloudFront).">
-    <meta property="og:image" content="https://aungkaungmyat778.github.io/my-portfolio/my-image.png">
-    <title>Aung Kaung Myat | Software Engineer Portfolio</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aung Kaung Myat — Software Engineer</title>
+<meta name="description" content="Full-stack software engineer working across Java, Node.js, and React — growing toward a DevOps-focused path spanning development, testing, deployment, and infrastructure.">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            /* GitHub Dark Theme Background */
-            color: #c9d1d9;
-            /* Light text */
-            line-height: 1.6;
-        }
+<meta property="og:title" content="Aung Kaung Myat — Software Engineer">
+<meta property="og:description" content="Full-stack projects in React, NestJS, ASP.NET Core, and AWS — deployed with real cloud infrastructure (RDS, ECS Fargate, S3, CloudFront).">
+<meta property="og:image" content="https://aungkaungmyat778.github.io/my-portfolio/my-image.png">
 
-        .section-header {
-            border-left: 4px solid #38bdf8;
-            /* Sky Blue accent */
-            padding-left: 1rem;
-            color: #ffffff;
-            font-weight: 700;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-        .project-card {
-            background-color: #161b22;
-            /* Slightly lighter dark background for cards */
-            border: 1px solid #30363d;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+<style>
+  :root{
+    --ink:#0F1B2D;
+    --panel:#16283F;
+    --grid:#26405F;
+    --paper:#ECE8DE;
+    --brass:#C99A52;
+    --brass-dim:#8B713D;
+    --muted:#8FA0B8;
+  }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-        }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
 
-        .skill-tag {
-            background-color: #30363d;
-            color: #58a6ff;
-            /* Blue accent for tags */
-        }
-    </style>
+  /* Temporary default — Option A (solid) from background-options.html.
+     Swap this rule once you've picked A/B/C. */
+  body{
+    margin:0;
+    background:var(--ink);
+    background-attachment:fixed;
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--paper);
+    margin:0;
+    line-height:1.15;
+  }
+
+  a{color:var(--brass);}
+
+  ::selection{background:var(--brass); color:var(--ink);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
+
+  /* ---------- Layout shell ---------- */
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,27,45,.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--grid);
+  }
+  .nav-inner{
+    max-width:760px; margin:0 auto; padding:16px 24px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .nav-mark{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--muted); letter-spacing:.02em;}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    color:var(--muted); text-decoration:none; font-size:14px;
+    padding-bottom:3px; border-bottom:1px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  .nav-links a.active, .nav-links a:hover{color:var(--paper); border-color:var(--brass);}
+  @media (max-width:640px){ .nav-links{gap:16px;} .nav-links a{font-size:12.5px;} }
+
+  /* ---------- Section reveal line (single motion motif) ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .draft-line{
+    width:100%; height:1px; background:var(--grid); position:relative; margin:64px 0 40px;
+    overflow:hidden;
+  }
+  .draft-line::before{
+    content:''; position:absolute; inset:0; background:var(--brass);
+    transform:scaleX(0); transform-origin:left; transition:transform .9s cubic-bezier(.4,0,.2,1);
+  }
+  .draft-line.in::before{transform:scaleX(1);}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--brass);
+    letter-spacing:.04em; margin-bottom:10px; display:block;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:120px 0 60px;}
+  .hero-frame{display:flex; gap:28px; align-items:center; margin-bottom:28px;}
+  .hero-frame img{
+    width:84px; height:84px; border-radius:50%; object-fit:cover;
+    border:1px solid var(--grid); outline:1px solid var(--brass-dim); outline-offset:4px;
+  }
+  .hero h1{font-size:clamp(32px,5vw,46px); font-weight:700;}
+  .hero .role{color:var(--muted); font-size:17px; margin-top:6px; font-weight:500;}
+  .hero p.lede{max-width:58ch; font-size:16.5px; color:var(--paper); margin-top:22px;}
+  .meta-row{display:flex; flex-wrap:wrap; gap:18px; margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--muted);}
+  .meta-row a{color:var(--muted); text-decoration:none;}
+  .meta-row a:hover{color:var(--brass);}
+
+  /* ---------- Section titles ---------- */
+  section{padding-bottom:8px;}
+  .sec-title{font-size:26px; font-weight:600; margin-bottom:18px;}
+
+  /* ---------- Panels (replaces generic card kit) ---------- */
+  .panel{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--grid);
+    padding:24px 26px;
+    margin-bottom:16px;
+  }
+  .panel::before, .panel::after{
+    content:''; position:absolute; width:14px; height:14px;
+    border-top:2px solid var(--brass-dim); border-left:2px solid var(--brass-dim);
+    top:-1px; left:-1px; transition:border-color .25s;
+  }
+  .panel::after{
+    top:auto; left:auto; bottom:-1px; right:-1px;
+    border-top:none; border-left:none;
+    border-bottom:2px solid var(--brass-dim); border-right:2px solid var(--brass-dim);
+  }
+  .panel:hover::before, .panel:hover::after{border-color:var(--brass);}
+
+  /* ---------- About ---------- */
+  .about-panel p{color:var(--paper); font-size:16px;}
+
+  /* ---------- Experience timeline ---------- */
+  .timeline{border-left:1px solid var(--grid); padding-left:26px; margin-left:6px;}
+  .t-item{position:relative; padding-bottom:34px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:''; position:absolute; left:-31px; top:5px;
+    width:9px; height:9px; background:var(--ink); border:2px solid var(--brass);
+  }
+  .t-role{font-size:17px; font-weight:600; color:var(--paper);}
+  .t-org{color:var(--brass); font-size:14.5px; margin-top:2px;}
+  .t-when{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); margin-top:4px;}
+  .t-desc{margin-top:10px; font-size:15px; color:var(--muted);}
+
+  /* ---------- Timeline graph ---------- */
+  .tl-panel{overflow-x:hidden;}
+  .tl-row-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; fill:var(--muted);}
+  .tl-year-label{font-family:'IBM Plex Mono', monospace; font-size:11px; fill:var(--muted);}
+  .tl-bar{fill:var(--brass-dim);}
+  .tl-bar.current{fill:var(--brass);}
+  .tl-bar:hover{fill:var(--brass);}
+  .tl-gridline{stroke:var(--grid); stroke-width:1;}
+  .tl-now-line{stroke:var(--brass); stroke-width:1; stroke-dasharray:3 3;}
+
+  /* ---------- Projects (expandable spec panels) ---------- */
+  .proj{background:var(--panel); border:1px solid var(--grid); margin-bottom:14px;}
+  .proj-head{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:20px 24px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    color:inherit; font-family:inherit;
+  }
+  .proj-head:focus-visible{outline:2px solid var(--brass); outline-offset:-2px;}
+  .proj-title{font-size:17px; font-weight:600; color:var(--paper);}
+  .proj-sub{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); margin-top:5px;}
+  .proj-toggle{
+    flex-shrink:0; width:22px; height:22px; border:1px solid var(--brass-dim);
+    display:flex; align-items:center; justify-content:center; position:relative;
+    transition:border-color .2s; margin-top:2px;
+  }
+  .proj-toggle::before, .proj-toggle::after{content:''; position:absolute; background:var(--brass); transition:transform .25s;}
+  .proj-toggle::before{width:10px; height:1.5px;}
+  .proj-toggle::after{width:1.5px; height:10px;}
+  .proj[open] .proj-toggle::after{transform:rotate(90deg); opacity:0;}
+  .proj[open] .proj-toggle{border-color:var(--brass);}
+
+  .proj-body-outer{overflow:hidden; max-height:0; transition:max-height .35s ease;}
+  .proj-body{padding:0 24px 26px; border-top:1px solid var(--grid);}
+  .proj-goal{font-size:15px; color:var(--paper); margin:18px 0 16px;}
+  .spec-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--brass); letter-spacing:.04em; margin-bottom:8px;}
+  .spec-block{margin-bottom:18px;}
+  .spec-block:last-child{margin-bottom:0;}
+  .proj-body ul{margin:0; padding-left:18px; color:var(--muted); font-size:14.5px;}
+  .proj-body li{margin-bottom:6px;}
+  .stack-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .stack-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--paper);
+    border:1px solid var(--grid); padding:4px 10px; background:var(--ink);
+  }
+
+  /* using a native <details>-like element via <div> managed by JS -- see .proj element */
+
+  /* ---------- Skills ---------- */
+  .skill-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:600px){.skill-grid{grid-template-columns:1fr;}}
+  .skill-group-title{font-size:13px; font-family:'IBM Plex Mono', monospace; color:var(--brass); margin-bottom:12px; letter-spacing:.03em;}
+  .skill-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-item{font-size:13.5px; color:var(--paper); border:1px solid var(--grid); padding:5px 11px;}
+
+  /* ---------- Certifications ---------- */
+  .cert-row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--grid);}
+  .cert-row:last-child{border-bottom:none;}
+  .cert-name{font-size:15px; color:var(--paper); font-weight:500;}
+  .cert-issuer{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted); margin-top:3px;}
+  .cert-score{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--brass); white-space:nowrap;}
+
+  /* ---------- Contact ---------- */
+  .contact-panel{display:flex; flex-direction:column; gap:2px;}
+  .contact-line{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 0; border-bottom:1px solid var(--grid); text-decoration:none;
+  }
+  .contact-line:last-child{border-bottom:none;}
+  .contact-label{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);}
+  .contact-value{color:var(--paper); font-size:15px;}
+  .contact-line:hover .contact-value{color:var(--brass);}
+  .contact-arrow{color:var(--brass-dim); transition:transform .2s;}
+  .contact-line:hover .contact-arrow{transform:translateX(3px);}
+
+  footer{padding:50px 0 60px; text-align:center;}
+  footer p{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);}
+</style>
 </head>
+<body>
 
-<body class="p-4 sm:p-8 lg:p-12">
+<nav>
+  <div class="nav-inner">
+    <span class="nav-mark">AKM / PORTFOLIO</span>
+    <ul class="nav-links">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#experience" data-nav>Experience</a></li>
+      <li><a href="#timeline" data-nav>Timeline</a></li>
+      <li><a href="#projects" data-nav>Projects</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <div class="max-w-4xl mx-auto">
+<div class="wrap">
 
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <!-- Replace this placeholder with your professional photo URL if available -->
-            <img src="my-image.png" alt="Aung Kaung Myat Profile"
-                class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-sky-400">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-1">Aung Kaung Myat</h1>
-            <h2 class="text-xl sm:text-2xl font-light text-sky-300">Software Engineer | Full Stack Developer</h2>
-            <div class="mt-3 text-sm flex flex-wrap justify-center space-x-4">
-                <p class="text-gray-400">Japan (Tokyo)</p>
-                <p class="text-gray-400">| Email: hemeletakm@gmail.com</p>
-                <p class="text-gray-400">| Phone: +81 70-4386-2133</p>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-frame">
+      <img src="my-image.png" alt="Aung Kaung Myat">
+      <div>
+        <h1>Aung Kaung Myat</h1>
+        <p class="role">Software Engineer — Full-Stack &amp; Cloud Infrastructure</p>
+      </div>
+    </div>
+    <p class="lede">
+      I design, build, test, deploy, and maintain full-stack applications end-to-end —
+      and I'm growing into the infrastructure that runs them, working toward a
+      DevOps-focused path where development and operations meet.
+    </p>
+    <div class="meta-row">
+      <span>Tokyo, Japan</span>
+      <a href="mailto:hemeletakm@gmail.com">hemeletakm@gmail.com</a>
+      <a href="https://github.com/aungkaungmyat778" target="_blank" rel="noopener">github.com/aungkaungmyat778</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <div class="draft-line reveal"></div>
+  <section id="about" class="reveal">
+    <span class="eyebrow">01 — ABOUT</span>
+    <h2 class="sec-title">Summary</h2>
+    <div class="panel about-panel">
+      <p>
+        I'm a full-stack software engineer with several years of production experience across
+        Java/Spring Boot, Node.js, and C#/ASP.NET Core — building frontend interfaces, backend
+        services, and technical design documentation within Japanese enterprise development teams.
+      </p>
+      <p style="margin-top:14px;">
+        I'm currently building toward a DevOps-focused path, deepening my cloud infrastructure
+        skills through hands-on practice — deploying and operating real systems, not just
+        studying theory. What I bring today is dependable full-stack delivery, with a growing
+        infrastructure skillset I'm actively investing in and a trilingual ability (English,
+        Japanese, Burmese) that lets me work across teams and borders.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <div class="draft-line reveal"></div>
+  <section id="experience" class="reveal">
+    <span class="eyebrow">02 — EXPERIENCE</span>
+    <h2 class="sec-title">Where I've worked</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <p class="t-role">Software Engineer</p>
+        <p class="t-org">Just.Assist 株式会社</p>
+        <p class="t-when">Mar 2025 — Present · Tokyo, Japan</p>
+        <p class="t-desc">
+          Full-stack development on an enterprise gift-certificate management platform for a
+          financial services client — started in QA, expanded into backend development with
+          ASP.NET Core, Entity Framework Core, and AWS.
+        </p>
+      </div>
+      <div class="t-item">
+        <p class="t-role">Web Developer</p>
+        <p class="t-org">STAR SE 株式会社</p>
+        <p class="t-when">Feb 2024 — Mar 2025 · Tokyo, Japan</p>
+        <p class="t-desc">
+          Contributed to a legacy VB.NET-to-Java/Vue.js migration for a warehousing and
+          inventory management system, and joined an ongoing COBOL banking system project as a tester.
+        </p>
+      </div>
+      <div class="t-item">
+        <p class="t-role">SE / Programmer</p>
+        <p class="t-org">DIR-ACE Technology Ltd. (DAT)</p>
+        <p class="t-when">Jul 2021 — Jul 2023 · Yangon, Myanmar</p>
+        <p class="t-desc">
+          Maintained and developed batch processing programs in COBOL and Assembly for a core
+          securities trading system, at a joint venture between Daiwa Institute of Research
+          (Japan) and ACE Data Systems (Myanmar) supporting Myanmar's capital markets IT.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <div class="draft-line reveal"></div>
+  <section id="timeline" class="reveal">
+    <span class="eyebrow">03 — TIMELINE</span>
+    <h2 class="sec-title">Project history at a glance</h2>
+    <div class="panel tl-panel">
+      <svg viewBox="0 0 760 300" width="100%" style="display:block;">
+        <!-- year gridlines, mapped across a reserved plot area (x=195 to x=735) -->
+        <line class="tl-gridline" x1="195" y1="10" x2="195" y2="255"/>
+        <line class="tl-gridline" x1="285" y1="10" x2="285" y2="255"/>
+        <line class="tl-gridline" x1="375" y1="10" x2="375" y2="255"/>
+        <line class="tl-gridline" x1="465" y1="10" x2="465" y2="255"/>
+        <line class="tl-gridline" x1="555" y1="10" x2="555" y2="255"/>
+        <line class="tl-gridline" x1="645" y1="10" x2="645" y2="255"/>
+
+        <text class="tl-year-label" x="195" y="270">2021</text>
+        <text class="tl-year-label" x="285" y="270">2022</text>
+        <text class="tl-year-label" x="375" y="270">2023</text>
+        <text class="tl-year-label" x="465" y="270">2024</text>
+        <text class="tl-year-label" x="555" y="270">2025</text>
+        <text class="tl-year-label" x="645" y="270">2026</text>
+        <text class="tl-year-label" x="688" y="270">Now</text>
+
+        <!-- "now" marker, ~Sep 2026 -->
+        <line class="tl-now-line" x1="705" y1="10" x2="705" y2="255"/>
+
+        <!-- rows, newest first, row height 34, labels right-aligned in the left margin -->
+        <text class="tl-row-label" x="185" y="32" text-anchor="end">ExpenseFlow</text>
+        <rect class="tl-bar current" x="690" y="20" width="15" height="16" rx="1"/>
+
+        <text class="tl-row-label" x="185" y="66" text-anchor="end">Gift Cert. System</text>
+        <rect class="tl-bar current" x="683" y="54" width="22" height="16" rx="1"/>
+
+        <text class="tl-row-label" x="185" y="100" text-anchor="end">Parking Congestion</text>
+        <rect class="tl-bar" x="630" y="88" width="38" height="16" rx="1"/>
+
+        <text class="tl-row-label" x="185" y="134" text-anchor="end">Smart Agriculture</text>
+        <rect class="tl-bar" x="585" y="122" width="38" height="16" rx="1"/>
+
+        <text class="tl-row-label" x="185" y="168" text-anchor="end">Transport Migration</text>
+        <rect class="tl-bar" x="495" y="156" width="75" height="16" rx="1"/>
+
+        <text class="tl-row-label" x="185" y="202" text-anchor="end">E-commerce Sales</text>
+        <rect class="tl-bar" x="353" y="190" width="135" height="16" rx="1"/>
+
+        <text class="tl-row-label" x="185" y="236" text-anchor="end">Securities System</text>
+        <rect class="tl-bar" x="240" y="224" width="180" height="16" rx="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <div class="draft-line reveal"></div>
+  <section id="projects" class="reveal">
+    <span class="eyebrow">04 — PROJECTS</span>
+    <h2 class="sec-title">Selected work</h2>
+
+    <!-- ExpenseFlow -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">ExpenseFlow — Team Expense Tracker</p>
+          <p class="proj-sub">Personal project · 2026 · React, NestJS, AWS</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            A full-stack expense-tracking and approval app, built to gain hands-on AWS
+            infrastructure experience beyond application code — deployed on real cloud
+            infrastructure, not just localhost.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Role-based approval workflow (employee → manager) with a full audit trail of status changes</li>
+              <li>Multi-tenant workspace architecture with category budgets and spend dashboards</li>
+              <li>Backend containerized with Docker and deployed on ECS Fargate, connected to RDS PostgreSQL over SSL</li>
+              <li>Database credentials and JWT secrets managed via AWS Secrets Manager — never stored in plaintext</li>
+              <li>Frontend deployed via GitHub Actions CI/CD to S3 and CloudFront, with least-privilege IAM policies scoped per resource</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">React</span><span class="stack-tag">NestJS</span>
+              <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Docker</span>
+              <span class="stack-tag">AWS RDS</span><span class="stack-tag">ECS Fargate</span>
+              <span class="stack-tag">ECR</span><span class="stack-tag">Secrets Manager</span>
+              <span class="stack-tag">S3 / CloudFront</span><span class="stack-tag">GitHub Actions</span>
             </div>
-        </header>
-
-        <!-- Summary / Profile Section -->
-        <section class="mb-12">
-            <h3 class="text-2xl section-header mb-6">Professional Summary</h3>
-            <div class="bg-gray-800 p-6 rounded-lg border border-sky-600/30">
-                <p class="text-gray-300 text-base">
-                    Proactive and dedicated Software Engineer based in Japan with 3+ years of experience in full-stack
-                    development, specializing in Java, Spring Boot, and TypeScript (Vue.js). Proven ability to handle
-                    all phases of the software development lifecycle, from detailed design to migration and bug fixing.
-                    Proficient in delivering high-quality, scalable systems, demonstrated particularly through migration
-                    projects that modernize legacy applications and improve system performance. Fluent in Japanese (N2
-                    equivalent) and passionate about building efficient, multilingual applications.
-                </p>
-            </div>
-        </section>
-
-        <!-- Technical Skills Section -->
-        <section class="mb-12">
-            <h3 class="text-2xl section-header mb-6">Technical Skills</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Languages & Frameworks -->
-                <div class="bg-gray-800 p-5 rounded-lg">
-                    <h4 class="text-xl font-semibold mb-3 text-sky-300">Languages & Frameworks</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Java (Spring Boot)</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Node.js</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">TypeScript (Vue.js)</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">JavaScript / jQuery</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">HTML5 / CSS3</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">JSP / Java Servlet</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">C# / .NET</span>
-                    </div>
-                </div>
-                <!-- Databases & Tools -->
-                <div class="bg-gray-800 p-5 rounded-lg">
-                    <h4 class="text-xl font-semibold mb-3 text-sky-300">Databases & Tools</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">SQL Server</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">MySQL</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Git / GitHub</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Eclipse / VS Studio</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Gradle / Maven</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-sm">Windows / Linux (Basic)</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience / Projects Section -->
-        <section class="mb-12">
-            <h3 class="text-2xl section-header mb-6">Key Professional Projects</h3>
-
-            <!-- Project 0: Gift Certificate Management System (Financial Services) -->
-            <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Enterprise Gift Certificate Management System (Financial
-                    Services)</h4>
-                <p class="text-sm text-gray-400 mb-3">Jun 2026 – Present | Role: QA Engineer → Backend Developer |
-                    Industry: Financial Services</p>
-
-                <p class="text-gray-300 mb-4">
-                    Project Goal: Build and maintain an enterprise web application for managing physical/digital gift
-                    certificates for a Japanese financial services client, built on ASP.NET Core (.NET 8), React, and a
-                    multi-tenant PostgreSQL architecture (shared common database + isolated per-customer databases),
-                    deployed on AWS via Docker.
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
-                    <li>
-                        QA & Root-Cause Analysis: Designed and executed a Dev-environment test plan spanning 170+ test
-                        cases across a nightly multi-tenant batch-sync process, REST APIs, and multiple UI screens;
-                        debugged directly in C#/.NET source to trace a production-blocking third-party validation bug
-                        and diagnose AWS SES sandbox failures.
-                    </li>
-                    <li>
-                        AWS Operations: Used Systems Manager Session Manager for secure, SSH-free EC2 access, queried
-                        PostgreSQL via psql for test-data validation, and used CloudWatch Logs Insights for structured
-                        log analysis and evidence collection.
-                    </li>
-                    <li>
-                        Backend Development: Authored Entity Framework Core entities and database migrations for a new
-                        Terms-of-Service management and targeted-announcements feature; investigated and documented a
-                        proposed multi-tenant API routing architecture change, tracing impact across JWT authentication,
-                        background services, and API clients.
-                    </li>
-                    <li>
-                        Planning & Communication: Contributed effort estimates and WBS task planning as part of a
-                        3-person development team; communicated daily status and blockers to a Japanese-speaking
-                        cross-functional team.
-                    </li>
-                    <li>
-                        Environment: C#, ASP.NET Core, Entity Framework Core, React, PostgreSQL, AWS (EC2, RDS, SSM,
-                        CloudWatch, SES, ECR), Docker.
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Project 1: Transportation Management System (Shipping/Logistics) -->
-            <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Transportation Management System (Migration Project)</h4>
-                <p class="text-sm text-gray-400 mb-3">May 2024 – Role: SE/Sub Leader | Industry: Logistics/Warehousing
-                </p>
-
-                <p class="text-gray-300 mb-4">
-                    Project Goal: Modernize a legacy VB.NET shipping and inventory management system by migrating the
-                    entire application to a modern Java/Vue.js stack, improving scalability and maintainability for a
-                    major Japanese transport company.
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
-                    <li>
-                        Front-End Development: Built 6 critical screens (e.g., Inventory List Printing, Deviation List)
-                        using TypeScript and Vue.js, significantly improving user experience and responsiveness compared
-                        to the legacy system.
-                    </li>
-                    <li>
-                        Back-End Development: Developed and implemented 6 key REST APIs using Java/Spring Boot for core
-                        business logic, including inventory management, reconciliation, and shipment processes.
-                    </li>
-                    <li>
-                        Quality Assurance: Authored and executed Unit Test Specifications and Unit Tests for all
-                        developed APIs and front-end components, ensuring robust and bug-free migration.
-                    </li>
-                    <li>
-                        Environment: Java, Spring Boot, Vue.js, TypeScript, SQL Server.
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Project 2: Agriculture System -->
-            <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Smart Agriculture System (Lettuce Cultivation)</h4>
-                <p class="text-sm text-gray-400 mb-3">May 2025 – Oct 2025 | Role: SE | Industry: Agriculture / IoT</p>
-
-                <p class="text-gray-300 mb-4">
-                    Project Goal: Developed a system to monitor environmental data (temperature, humidity, etc.) during
-                    lettuce cultivation and provide predictive insights (e.g., nitrate nitrogen and polyphenol levels)
-                    to support optimal farming decisions.
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
-                    <li>
-                        Front-End Development: Built dashboards to visualize cultivation data including growth status,
-                        environmental metrics, and sensor monitoring for greenhouses and racks.
-                    </li>
-                    <li>
-                        Back-End Development: Designed and implemented APIs, sensor data processing, AI server
-                        integration, and dashboard services.
-                    </li>
-                    <li>
-                        System Architecture: Developed sensor server, AI server, and dashboard modules with cloud
-                        deployment on GCP.
-                    </li>
-                    <li>
-                        Environment: Node.js, React.js, TypeScript, MySQL, GCP (Cloud Run).
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Project 3: Sales Management System (E-commerce) -->
-            <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">E-commerce Sales Management System</h4>
-                <p class="text-sm text-gray-400 mb-3">Oct 2022 – Apr 2024 | Role: SE/Developer | Industry: E-commerce
-                </p>
-
-                <p class="text-gray-300 mb-4">
-                    Project Goal: Enhance a sales management system for a major e-commerce platform, focusing on
-                    inventory, order processing, and reporting functionalities.
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
-                    <li>
-                        Full-Stack Implementation: Responsible for both front-end (JSP/JavaScript) and back-end (Java
-                        Servlet) development for order management screens.
-                    </li>
-                    <li>
-                        Database Optimization: Designed and implemented SQL queries for complex reporting and inventory
-                        checks against MySQL to ensure data accuracy for sales metrics.
-                    </li>
-                    <li>
-                        Feature Development: Developed a new Inventory Status Check feature that provided real-time
-                        stock levels, reducing manual verification time by an estimated 20%.
-                    </li>
-                    <li>
-                        Environment: Java, JSP, Java Servlet, JavaScript, HTML/CSS, MySQL, Eclipse.
-                    </li>
-                </ul>
-            </div>
-            <!-- Project 3: Parking Congestion Prediction System -->
-            <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Parking Congestion Prediction System</h4>
-                <p class="text-sm text-gray-400 mb-3">Nov 2025 – Present | Role: SE | Industry: Smart City / Traffic
-                    Analysis</p>
-
-                <p class="text-gray-300 mb-4">
-                    Project Goal: Developed a system to predict parking congestion and travel time by analyzing routes
-                    from parking entry to exit, helping distribute traffic and reduce peak-time congestion.
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
-                    <li>
-                        Front-End Development: Implemented real-time UI screens for route time visualization, parking
-                        status, configuration settings, and weather display.
-                    </li>
-                    <li>
-                        Back-End Development: Designed APIs and system architecture for real-time data processing, route
-                        prediction, and parking data integration.
-                    </li>
-                    <li>
-                        System Features: Calculated travel time for each route, predicted congestion levels, and
-                        optimized route distribution.
-                    </li>
-                    <li>
-                        Team Size: 2 members, worked across both front-end and back-end.
-                    </li>
-                    <li>
-                        Environment: Node.js, React.js, TypeScript, PostgreSQL, Express, GCP.
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Project 4: Securities System (Japan Market) -->
-            <div class="project-card p-6 rounded-lg mb-6">
-                <h4 class="text-xl font-bold text-white">Securities System (Japanese Market)</h4>
-                <p class="text-sm text-gray-400 mb-3">Jul 2021 – Jul 2023 | Role: SE/Programmer | Industry: Finance
-                    (Securities)</p>
-
-                <p class="text-gray-300 mb-4">
-                    Project Goal: Maintenance and development of a core securities system for a major Japanese financial
-                    institution, handling critical batch processing and transaction data using COBOL and Assembly.
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-300">
-                    <li>
-                        Back-End Development: Developed and maintained batch processing programs using COBOL and
-                        Assembly (ASM) for financial transaction systems.
-                    </li>
-                    <li>
-                        System Enhancement: Modified and optimized JCL scripts for job execution and performance
-                        improvements.
-                    </li>
-                    <li>
-                        Design & Documentation: Created detailed design documents and technical specifications in
-                        Japanese.
-                    </li>
-                    <li>
-                        Testing & QA: Prepared unit test specifications, conducted unit testing, and handled bug fixing.
-                    </li>
-                    <li>
-                        Maintenance & Operations: Supported ongoing system operations and issue resolution in a
-                        large-scale production environment.
-                    </li>
-                    <li>
-                        Team Size: 40 members.
-                    </li>
-                    <li>
-                        Environment: COBOL, Assembly, JCL, DB2, TSO, Windows.
-                    </li>
-                </ul>
-            </div>
-
-
-        </section>
-
-        <!-- Education and Certifications Section -->
-        <section class="mb-12">
-            <h3 class="text-2xl section-header mb-6">Education & Certifications</h3>
-
-            <div class="space-y-4">
-                <!-- Education -->
-                <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
-                    <p class="text-lg font-semibold text-white">Diploma in Information Technology</p>
-                    <p class="text-sm text-gray-400">METRO Private University (METRO(私立大学)), Yangon, Myanmar</p>
-                    <p class="text-sm text-gray-400">Nov 2017 – Oct 2019 | Major: IT</p>
-                </div>
-                <!-- Japanese Language Training -->
-                <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
-                    <p class="text-lg font-semibold text-white">Japanese Language & Culture Training</p>
-                    <p class="text-sm text-gray-400">Nov 2017 – Oct 2019</p>
-                    <p class="text-sm text-gray-300">Achieved proficiency equivalent to Japanese Language Proficiency
-                        Test N2 level.</p>
-                </div>
-                <!-- Certifications -->
-                <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
-                    <p class="text-lg font-semibold text-white">Certifications</p>
-                    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-300">
-                        <li>ITPEC Certification (April 2018)</li>
-                        <li>Japanese Language Proficiency(N2 JLPT)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer / Contact -->
-        <footer class="text-center mt-12 pt-6 border-t border-gray-700">
-            <p class="text-sm text-gray-500">
-                Portfolio designed for international job and freelance applications. All professional data is adapted
-                from the original 履歴書 and 職務経歴書.
-            </p>
-        </footer>
+          </div>
+        </div>
+      </div>
     </div>
 
-</body>
+    <!-- Gift Certificate System -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">Enterprise Gift Certificate Management System</p>
+          <p class="proj-sub">Jun 2026 — Present · QA Engineer → Backend Developer · Financial Services</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            Enterprise web application for managing physical and digital gift certificates for a
+            Japanese financial services client, on a multi-tenant architecture with a shared
+            common database plus isolated per-customer databases.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Designed and executed a test plan spanning 170+ cases across a nightly multi-tenant batch-sync process, REST APIs, and UI screens</li>
+              <li>Debugged directly in C#/.NET source to trace a production-blocking third-party validation bug and diagnose AWS SES failures</li>
+              <li>Used Systems Manager Session Manager for secure EC2 access and CloudWatch Logs Insights for log analysis</li>
+              <li>Authored Entity Framework Core entities and migrations for a new Terms-of-Service and announcements feature</li>
+              <li>Investigated a proposed multi-tenant API routing change, tracing impact across JWT auth and background services</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">C#</span><span class="stack-tag">ASP.NET Core</span>
+              <span class="stack-tag">Entity Framework Core</span><span class="stack-tag">React</span>
+              <span class="stack-tag">PostgreSQL</span><span class="stack-tag">AWS EC2 / RDS / SES</span>
+              <span class="stack-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Transportation Management -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">Transportation Management System — Migration</p>
+          <p class="proj-sub">From May 2024 · SE / Sub Leader · Logistics</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            Modernized a legacy VB.NET shipping and inventory management system by migrating
+            the full application to a Java/Vue.js stack for a major Japanese transport company.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Built 6 critical screens (inventory list printing, deviation list) in TypeScript and Vue.js</li>
+              <li>Developed 6 REST APIs in Java/Spring Boot for inventory, reconciliation, and shipment logic</li>
+              <li>Authored and executed unit test specifications for all APIs and frontend components</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Java</span><span class="stack-tag">Spring Boot</span>
+              <span class="stack-tag">Vue.js</span><span class="stack-tag">TypeScript</span>
+              <span class="stack-tag">SQL Server</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smart Agriculture -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">Smart Agriculture System — Lettuce Cultivation</p>
+          <p class="proj-sub">May 2025 — Oct 2025 · SE · IoT / Agriculture</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            Monitored environmental data during lettuce cultivation and provided predictive
+            insights on nitrate nitrogen and polyphenol levels to support farming decisions.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Built dashboards visualizing growth status, environmental metrics, and sensor data</li>
+              <li>Designed APIs for sensor data processing, AI server integration, and dashboard services</li>
+              <li>Built sensor server, AI server, and dashboard modules, deployed on GCP Cloud Run</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Node.js</span><span class="stack-tag">React.js</span>
+              <span class="stack-tag">TypeScript</span><span class="stack-tag">MySQL</span>
+              <span class="stack-tag">GCP Cloud Run</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parking Congestion -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">Parking Congestion Prediction System</p>
+          <p class="proj-sub">Nov 2025 — Apr 2026 · SE · Smart City / Traffic Analysis</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            Predicts parking congestion and travel time by analyzing routes from entry to exit,
+            helping distribute traffic and reduce peak-time congestion.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Built real-time UI for route time visualization, parking status, and weather display</li>
+              <li>Designed APIs and system architecture for real-time data processing and route prediction</li>
+              <li>2-person team, working across both frontend and backend</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Node.js</span><span class="stack-tag">React.js</span>
+              <span class="stack-tag">TypeScript</span><span class="stack-tag">PostgreSQL</span>
+              <span class="stack-tag">Express</span><span class="stack-tag">GCP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-commerce -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">E-commerce Sales Management System</p>
+          <p class="proj-sub">Oct 2022 — Apr 2024 · SE / Developer · E-commerce</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            Enhanced a sales management system for a major e-commerce platform, focused on
+            inventory, order processing, and reporting.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Built order management screens across frontend (JSP/JavaScript) and backend (Java Servlet)</li>
+              <li>Designed SQL queries for complex reporting and inventory checks against MySQL</li>
+              <li>Developed a real-time Inventory Status Check feature, cutting manual verification time by an estimated 20%</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Java</span><span class="stack-tag">JSP</span>
+              <span class="stack-tag">Java Servlet</span><span class="stack-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Securities System -->
+    <div class="proj" data-proj>
+      <button class="proj-head" data-proj-toggle aria-expanded="false">
+        <div>
+          <p class="proj-title">Securities System — Japanese Market</p>
+          <p class="proj-sub">Jul 2021 — Jul 2023 · SE / Programmer · Finance</p>
+        </div>
+        <span class="proj-toggle"></span>
+      </button>
+      <div class="proj-body-outer">
+        <div class="proj-body">
+          <p class="proj-goal">
+            Maintenance and development on a core securities system for a major Japanese
+            financial institution, handling critical batch processing on COBOL and Assembly.
+          </p>
+          <div class="spec-block">
+            <p class="spec-label">HIGHLIGHTS</p>
+            <ul>
+              <li>Developed and maintained batch processing programs in COBOL and Assembly</li>
+              <li>Modified and optimized JCL scripts for job execution and performance</li>
+              <li>Created technical specifications in Japanese; prepared and executed unit test specifications</li>
+              <li>Team of 40 members on a large-scale production system</li>
+            </ul>
+          </div>
+          <div class="spec-block">
+            <p class="spec-label">STACK</p>
+            <div class="stack-tags">
+              <span class="stack-tag">COBOL</span><span class="stack-tag">Assembly</span>
+              <span class="stack-tag">JCL</span><span class="stack-tag">DB2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+  <div class="draft-line reveal"></div>
+  <section id="skills" class="reveal">
+    <span class="eyebrow">05 — SKILLS</span>
+    <h2 class="sec-title">Technical toolkit</h2>
+    <div class="skill-grid">
+      <div class="panel">
+        <p class="skill-group-title">LANGUAGES &amp; FRAMEWORKS</p>
+        <div class="skill-list">
+          <span class="skill-item">Java / Spring Boot</span>
+          <span class="skill-item">Node.js / NestJS</span>
+          <span class="skill-item">TypeScript</span>
+          <span class="skill-item">React / Next.js / Vue.js</span>
+          <span class="skill-item">C# / ASP.NET Core</span>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="skill-group-title">CLOUD &amp; INFRASTRUCTURE</p>
+        <div class="skill-list">
+          <span class="skill-item">AWS (EC2, RDS, ECS Fargate)</span>
+          <span class="skill-item">S3 / CloudFront</span>
+          <span class="skill-item">Secrets Manager / IAM</span>
+          <span class="skill-item">Docker</span>
+          <span class="skill-item">GitHub Actions CI/CD</span>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="skill-group-title">DATABASES</p>
+        <div class="skill-list">
+          <span class="skill-item">PostgreSQL</span>
+          <span class="skill-item">MySQL</span>
+          <span class="skill-item">SQL Server</span>
+          <span class="skill-item">Supabase</span>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="skill-group-title">LANGUAGES SPOKEN</p>
+        <div class="skill-list">
+          <span class="skill-item">English</span>
+          <span class="skill-item">Japanese</span>
+          <span class="skill-item">Burmese</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:20px;">
+      <p class="skill-group-title">CERTIFICATIONS</p>
+      <div class="cert-row">
+        <div>
+          <p class="cert-name">EF SET English Certificate</p>
+          <p class="cert-issuer">EF SET</p>
+        </div>
+        <span class="cert-score">B2 · 58/100</span>
+      </div>
+      <div class="cert-row">
+        <div>
+          <p class="cert-name">Fundamental Engineer &amp; IT Passport</p>
+          <p class="cert-issuer">ITPEC</p>
+        </div>
+        <span class="cert-score">2018</span>
+      </div>
+      <div class="cert-row">
+        <div>
+          <p class="cert-name">Japanese Language Proficiency Test</p>
+          <p class="cert-issuer">JLPT</p>
+        </div>
+        <span class="cert-score">N2</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <div class="draft-line reveal"></div>
+  <section id="contact" class="reveal">
+    <span class="eyebrow">06 — CONTACT</span>
+    <h2 class="sec-title">Get in touch</h2>
+    <div class="panel contact-panel">
+      <a class="contact-line" href="mailto:hemeletakm@gmail.com">
+        <div><p class="contact-label">EMAIL</p><p class="contact-value">hemeletakm@gmail.com</p></div>
+        <span class="contact-arrow">›</span>
+      </a>
+      <a class="contact-line" href="https://github.com/aungkaungmyat778" target="_blank" rel="noopener">
+        <div><p class="contact-label">GITHUB</p><p class="contact-value">github.com/aungkaungmyat778</p></div>
+        <span class="contact-arrow">›</span>
+      </a>
+      <a class="contact-line" href="https://www.linkedin.com/in/aung-kaung-myat-2605b1211" target="_blank" rel="noopener">
+        <div><p class="contact-label">LINKEDIN</p><p class="contact-value">in/aung-kaung-myat</p></div>
+        <span class="contact-arrow">›</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>BUILT WITH HTML, CSS &amp; JS — DEPLOYED VIA GITHUB PAGES</p>
+  </footer>
+
+</div>
+
+<script>
+  // Single motion motif: reveal sections + draft-lines on scroll into view.
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Scrollspy: highlight current nav link.
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  // Expandable project panels — smooth height animation via max-height.
+  document.querySelectorAll('[data-proj-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const proj = btn.closest('[data-proj]');
+      const outer = proj.querySelector('.proj-body-outer');
+      const isOpen = proj.hasAttribute('open');
+      if (isOpen) {
+        outer.style.maxHeight = outer.scrollHeight + 'px';
+        requestAnimationFrame(() => { outer.style.maxHeight = '0px'; });
+        proj.removeAttribute('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        proj.setAttribute('open', '');
+        btn.setAttribute('aria-expanded', 'true');
+        outer.style.maxHeight = outer.scrollHeight + 'px';
+        outer.addEventListener('transitionend', function fix(){
+          if (proj.hasAttribute('open')) outer.style.maxHeight = 'none';
+          outer.removeEventListener('transitionend', fix);
+        });
+      }
+    });
+  });
+
+  // Keep open panels correctly sized if the window resizes (e.g. text reflow).
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('[data-proj][open]').forEach(proj => {
+      const outer = proj.querySelector('.proj-body-outer');
+      outer.style.maxHeight = 'none';
+    });
+  });
+</script>
+
+</body>
 </html>
